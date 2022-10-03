@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './App.css';
+import './styles/App.css';
 import Search from "./components/Search";
 import NotationEditor from "./components/NotationEditor";
 import {Tab, TabList, TabPanel, Tabs} from "react-tabs";
