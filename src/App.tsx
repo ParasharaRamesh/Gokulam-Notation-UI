@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Search from "./components/Search";
+import NotationEditor from "./components/NotationEditor";
+import {Tab, TabList, TabPanel, Tabs} from "react-tabs";
+import 'react-tabs/style/react-tabs.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [tabIndex, setTabIndex] = useState(0);
+
+    return (
+        <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+            <TabList>
+                <Tab>Search</Tab>
+                <Tab>Notation Editor</Tab>
+            </TabList>
+            <TabPanel>
+                <div>
+                    <Search/>
+                </div>
+            </TabPanel>
+            <TabPanel>
+                <div>
+                    <NotationEditor/>
+                </div>
+            </TabPanel>
+        </Tabs>
+    );
+};
 
 export default App;
